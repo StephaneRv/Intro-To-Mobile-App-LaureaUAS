@@ -1,19 +1,17 @@
 import { IonContent, IonPage } from '@ionic/react';
-import { SideMenu } from '../components/SideMenu';
 import styled from 'styled-components';
 
-const Tab2: React.FC = () => {
+const Help: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-        <TextContainer>About page</TextContainer>
+        <TextContainer>If you need help, contact the developper at riveaux.stephane@gmail.com</TextContainer>
       </IonContent>
-      <SideMenu/>
     </IonPage>
   );
 };
 
-export default Tab2;
+export default Help;
 
 const TextContainer = styled.div`
   display: flex;
@@ -21,5 +19,6 @@ const TextContainer = styled.div`
   align-items: center;
   height: 100%;
   font-weight: bold;
-  text-aglin: center;
+  padding: 0 25px;
+  max-width: 90%;
   `;

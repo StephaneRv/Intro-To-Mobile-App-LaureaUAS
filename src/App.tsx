@@ -7,31 +7,34 @@ import {
   IonTabButton,
   IonTabs,
   setupIonicReact,
-  IonMenuToggle, IonButton, IonToolbar, IonHeader, IonText, IonTitle
+  IonMenuToggle, IonButton, IonToolbar, IonTitle
 } from '@ionic/react';
 
-import { menu } from 'ionicons/icons';
 import styled from 'styled-components';
 
 import { IonReactRouter } from '@ionic/react-router';
-import { home, informationCircle, call } from 'ionicons/icons';
+import { home, informationCircle, menu, cloud } from 'ionicons/icons';
 
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import AboutTab from './pages/About';
+import HomeTab from './pages/Home';
+import Weather from './pages/Weather';
+import Settings from './pages/Settings';
+import Help from './pages/Help';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import { SideMenu } from './components/SideMenu';
+
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonHeader>
+        <SideMenu/>
         <IonToolbar>
           <IonMenuToggle>
             <HeaderContainer>
@@ -39,36 +42,41 @@ const App: React.FC = () => (
               <IonIcon icon={menu}/>
             </IonButton>
             <TitleContainer>
-              <IonTitle>Mobile App Dev</IonTitle>
+              <IonTitle>Stéphane App</IonTitle>
             </TitleContainer>
             </HeaderContainer>
           </IonMenuToggle>
         </IonToolbar>
-      </IonHeader>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+          <Route exact path="/homeTab">
+            <HomeTab />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/aboutTab">
+            <AboutTab />
           </Route>
-          <Route path="/tab3">
-            <Tab3 />
+          <Route exact path="/weather">
+            <Weather />
+          </Route>
+          <Route exact path="/settings">
+            <Settings />
+          </Route>
+          <Route exact path="/help">
+            <Help />
           </Route>
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/homeTab" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom" color="black">
-          <IonTabButton tab="tab2" href="/tab2">
+          <IonTabButton tab="aboutTab" href="/aboutTab">
             <IonIcon icon={informationCircle} />
           </IonTabButton>
-          <IonTabButton tab="tab1" href="/tab1">
+          <IonTabButton tab="homeTab" href="/homeTab">
             <IonIcon icon={home} />
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon icon={call} />
+          <IonTabButton tab="weather" href="/weather">
+            <IonIcon icon={cloud} />
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
@@ -84,7 +92,5 @@ const HeaderContainer = styled.div`
 `;
 
 const TitleContainer = styled.div`
-  // padding-left: 10px;
   padding-top: 10px;
-  // text-align: center;
 `;
