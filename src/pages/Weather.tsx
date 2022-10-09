@@ -14,7 +14,7 @@ const Weather: React.FC = () => {
     url: 'https://weatherapi-com.p.rapidapi.com/forecast.json',
     params: {q: city, days: '1'},
     headers: {
-      'X-RapidAPI-Key': '3a2d5b871emshb0763423b24aef3p120b01jsn5e4ff04f0e43',
+      'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
       'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
     }
   };

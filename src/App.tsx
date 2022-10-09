@@ -28,7 +28,6 @@ import '@ionic/react/css/core.css';
 import './theme/variables.css';
 import { SideMenu } from './components/SideMenu';
 
-
 setupIonicReact();
 
 const App: React.FC = () => (

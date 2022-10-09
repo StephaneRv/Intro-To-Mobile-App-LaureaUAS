@@ -20,7 +20,7 @@ const Settings: React.FC = () => {
             <IonInput value={username} placeholder="Username" onIonChange={e => setUsername(e.detail.value!)} clearInput></IonInput>
           </IonItem>
           <IonItem>
-            <IonInput value={password} placeholder="Password" onIonChange={e => setPassword(e.detail.value!)} clearInput></IonInput>
+            <IonInput value={password} type="password" placeholder="Password" onIonChange={e => setPassword(e.detail.value!)} clearInput></IonInput>
           </IonItem>
         </IonList>
       </IonContent>
