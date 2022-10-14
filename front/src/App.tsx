@@ -18,7 +18,8 @@ import { home, informationCircle, menu, cloud } from 'ionicons/icons';
 import AboutTab from './pages/About';
 import HomeTab from './pages/Home';
 import Weather from './pages/Weather';
-import Settings from './pages/Settings';
+import Register from './pages/Register';
+import Login from './pages/Login';
 import Help from './pages/Help';
 
 /* Core CSS required for Ionic components to work properly */
@@ -57,8 +58,11 @@ const App: React.FC = () => (
           <Route exact path="/weather">
             <Weather />
           </Route>
-          <Route exact path="/settings">
-            <Settings />
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          <Route exact path="/login">
+            <Login />
           </Route>
           <Route exact path="/help">
             <Help />

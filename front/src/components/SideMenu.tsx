@@ -14,7 +14,10 @@ export const SideMenu: React.FC = () => (
     <ListContainer>
         <IonList>
           <IonItem>
-            <IonButton href='/settings' fill="clear" color="dark">Settings</IonButton>
+            <IonButton href='/register' fill="clear" color="dark">register</IonButton>
+          </IonItem>
+          <IonItem>
+            <IonButton href='/login' fill="clear" color="dark">login</IonButton>
           </IonItem>
           <IonItem>
             <IonButton href='/help' fill="clear" color="dark">Help</IonButton>
