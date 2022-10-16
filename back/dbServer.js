@@ -1,8 +1,11 @@
 const express = require("express")
 const app = express()
-var cors = require('cors')
 const mysql = require("mysql")
+const bcrypt = require("bcrypt")
+var cors = require('cors')
+
 app.use(cors())
+app.use(express.json())
 
 require("dotenv").config()
 
@@ -32,11 +35,6 @@ const port = process.env.PORT
 app.listen(port,
     ()=> console.log(`Server Started on port ${port}...`))
 
-
-/* Create user */
-const bcrypt = require("bcrypt")
-app.use(express.json())
-
 app.post("/register", async (req,res) => {
     const username = req.body.username;
     const hashedPassword = await bcrypt.hash(req.body.password,10);
@@ -47,8 +45,7 @@ app.post("/register", async (req,res) => {
         const search_query = mysql.format(sqlSearch,[username])
         const sqlInsert = "INSERT INTO userTable VALUES (0,?,?)"
         const insert_query = mysql.format(sqlInsert,[username, hashedPassword])
-        // ? will be replaced by values
-        // ?? will be replaced by string
+
         await connection.query(search_query, async (err, result) => {
             if (err)
                 throw (err)
@@ -69,9 +66,9 @@ app.post("/register", async (req,res) => {
                     res.sendStatus(201)
                 })
             }
-        }) //end of connection.query()
-    }) //end of db.getConnection()
-}) //end of app.post()
+        })
+    })
+})
 
 // const generateAccessToken = require("./generateAccessToken")
 
