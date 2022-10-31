@@ -1,12 +1,28 @@
 import { IonContent, IonPage } from '@ionic/react';
 import styled from 'styled-components';
+import { Tababar } from '../components/Tabbar';
+
+import {
+  IonButtons,
+  IonHeader,
+  IonToolbar,
+  IonMenuButton,
+} from '@ionic/react';
 
 const AboutTab: React.FC = () => {
   return (
     <IonPage>
+        <IonHeader>
+            <IonToolbar>
+              <IonButtons slot="start">
+                <IonMenuButton></IonMenuButton>
+              </IonButtons>
+            </IonToolbar>
+        </IonHeader>
       <IonContent fullscreen>
         <TextContainer>App developped by Stéphane Riveaux</TextContainer>
       </IonContent>
+      <Tababar/>
     </IonPage>
   );
 };

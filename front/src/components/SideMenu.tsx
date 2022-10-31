@@ -4,32 +4,32 @@ import styled from 'styled-components';
 
 export const SideMenu: React.FC = () => (
   <>
-  <IonMenu contentId="main-content">
+    <IonMenu contentId="main-content">
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Menu</IonTitle>
+        </IonToolbar>
+        <IonButton href='/logout' fill="clear" color="dark">logout</IonButton>
+      </IonHeader>
+      {/* <ListContainer>
+          <IonList>
+            <IonItem>
+            </IonItem>
+          </IonList>
+        </ListContainer> */}
+    </IonMenu>
+
+  {/* <IonMenu contentId="main-content">
     <IonHeader>
       <IonToolbar>
-        <IonTitle>Menu</IonTitle>
+        <IonTitle>Menu Content</IonTitle>
       </IonToolbar>
     </IonHeader>
-    <IonContent>
-    <ListContainer>
-        <IonList>
-          <IonItem>
-            <IonButton href='/register' fill="clear" color="dark">register</IonButton>
-          </IonItem>
-          <IonItem>
-            <IonButton href='/login' fill="clear" color="dark">login</IonButton>
-          </IonItem>
-          <IonItem>
-            <IonButton href='/help' fill="clear" color="dark">Help</IonButton>
-          </IonItem>
-        </IonList>
-      </ListContainer>
-    </IonContent>
-  </IonMenu>
-  <IonPage id="main-content"/>
-</>
+    <IonContent className="ion-padding">This is the menu content.</IonContent>
+    </IonMenu> */}
+  </>
 );
 
 const ListContainer = styled.div`
     // padding-top: 50px;
-    `;
+  `;

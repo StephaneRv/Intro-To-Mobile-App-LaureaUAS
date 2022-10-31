@@ -13,14 +13,14 @@ import {
 import styled from 'styled-components';
 
 import { IonReactRouter } from '@ionic/react-router';
-import { home, informationCircle, menu, cloud } from 'ionicons/icons';
+import { menu } from 'ionicons/icons';
 
 import AboutTab from './pages/About';
 import HomeTab from './pages/Home';
 import Weather from './pages/Weather';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Help from './pages/Help';
+import LogOut from './pages/Logout';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -28,61 +28,36 @@ import '@ionic/react/css/core.css';
 /* Theme variables */
 import './theme/variables.css';
 import { SideMenu } from './components/SideMenu';
+// import { Tababar } from './components/Tabbar';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-        <SideMenu/>
-        <IonToolbar>
-          <IonMenuToggle>
-            <HeaderContainer>
-            <IonButton fill="default">
-              <IonIcon icon={menu}/>
-            </IonButton>
-            <TitleContainer>
-              <IonTitle>Stéphane App</IonTitle>
-            </TitleContainer>
-            </HeaderContainer>
-          </IonMenuToggle>
-        </IonToolbar>
-      <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/homeTab">
-            <HomeTab />
+          <Route exact path="/home">
+            <HomeTab/>
           </Route>
-          <Route exact path="/aboutTab">
-            <AboutTab />
+          <Route exact path="/about">
+            <AboutTab/>
           </Route>
           <Route exact path="/weather">
-            <Weather />
+            <Weather/>
           </Route>
           <Route exact path="/register">
-            <Register />
+            <Register/>
           </Route>
           <Route exact path="/login">
-            <Login />
+            <Login/>
           </Route>
-          <Route exact path="/help">
-            <Help />
+          <Route exact path="/logout">
+            <LogOut/>
           </Route>
           <Route exact path="/">
-            <Redirect to="/homeTab" />
+            <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
-        <IonTabBar slot="bottom" color="black">
-          <IonTabButton tab="aboutTab" href="/aboutTab">
-            <IonIcon icon={informationCircle} />
-          </IonTabButton>
-          <IonTabButton tab="homeTab" href="/homeTab">
-            <IonIcon icon={home} />
-          </IonTabButton>
-          <IonTabButton tab="weather" href="/weather">
-            <IonIcon icon={cloud} />
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );
